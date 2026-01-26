@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'Gilroy-Bold';
+  src: url('/assets/fonts/Gilroy-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'NexaBold';
+  src: url('/assets/fonts/NexaBold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'NexaBook';
+  src: url('/assets/fonts/NexaBook.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'NexaHeavy';
+  src: url('/assets/fonts/NexaHeavy.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'NexaLight';
+  src: url('/assets/fonts/NexaLight.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'NexaLight';
+  src: url('/assets/fonts/NexaLight.otf') format('opentype');
+}
+
+
+@font-face {
+  font-family: 'Sequel-Sans';
+  src: url('/assets/fonts/sequel-sans-heavy-disp.ttf') format('truetype');
+}
+
+
+body{
+    margin: 0;
+}

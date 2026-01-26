@@ -1,4 +1,6 @@
-<img src="../assets/images/logo.png" alt="" class="logo">
+<app-header></app-header>
+
+
 <div style="width:700px; margin:auto; height: 100vh;">
   <h2 class="title-under-construction position-this">This</h2>
   <ng-lottie [options]="lottieOptions"></ng-lottie>
@@ -6,5 +8,14 @@
 </div>
 
 
+<h1>Blog</h1>
 
+@for (post of posts; track post.id) {
+  <article>
+    <h2 [innerHTML]="post.title.rendered"></h2>
+    <div [innerHTML]="post.excerpt.rendered"></div>
+  </article>
+}
+
+<app-footer></app-footer>
 <router-outlet />

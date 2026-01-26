@@ -1,32 +1,38 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WordpressService {
-  private baseUrl = 'https://admin1.irahetacleaningservicesllc.com/wp-json/';
+
+  private apiUrl = environment.wpApiUrl;
 
   constructor(private http: HttpClient) {}
 
-  // Obtener todos los posts
+  // Obtener posts
   getPosts(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}/posts`);
+    return this.http.get<any[]>(`${this.apiUrl}/posts`);
   }
 
-  // Obtener un post por ID o slug
-  getPost(id: number | string): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/posts/${id}`);
+  // Obtener un post por slug
+  getPostBySlug(slug: string): Observable<any[]> {
+    return this.http.get<any[]>(
+      `${this.apiUrl}/posts?slug=${slug}`
+    );
   }
 
   // Obtener páginas
   getPages(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}/pages`);
+    return this.http.get<any[]>(`${this.apiUrl}/pages`);
   }
 
-  // Obtener categorías
-  getCategories(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}/categories`);
+
+  getPageBySlug(slug: string): Observable<any[]> {
+    return this.http.get<any[]>(
+      `${this.apiUrl}/posts?slug=${slug}`
+    );
   }
 }
