@@ -1,21 +1,7 @@
 <app-header></app-header>
 
-
-<div style="width:700px; margin:auto; height: 100vh;">
-  <h2 class="title-under-construction position-this">This</h2>
-  <ng-lottie [options]="lottieOptions"></ng-lottie>
-  <h2 class="title-under-construction position-under">Is Under Construction</h2>
-</div>
-
-
-<h1>Blog</h1>
-
-@for (post of posts; track post.id) {
-  <article>
-    <h2 [innerHTML]="post.title.rendered"></h2>
-    <div [innerHTML]="post.excerpt.rendered"></div>
-  </article>
-}
+<main class="main">
+  <router-outlet></router-outlet>
+</main>
 
 <app-footer></app-footer>
-<router-outlet />

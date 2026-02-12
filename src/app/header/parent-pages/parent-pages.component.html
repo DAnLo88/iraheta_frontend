@@ -1,0 +1,9 @@
+<ul class="sub-list">
+    @for (page of parentPages; track page.id) {
+    <li>
+        <a [routerLink]="['/services', page.slug]">
+        {{ page.title.rendered  }}
+        </a>
+    </li>
+    }
+</ul>

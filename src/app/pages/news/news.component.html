@@ -1,0 +1,16 @@
+<div class="wd-1200px">
+@if (newsPage) {
+  <h1 [innerHTML]="newsPage.title.rendered"></h1>
+  <div [innerHTML]="newsPage.content.rendered"></div>
+}
+
+@for (post of posts; track post.id) {
+  <article>
+    <h2 [innerHTML]="post.title.rendered"></h2>
+    <div [innerHTML]="post.excerpt.rendered"></div>
+    <a [routerLink]="['/news', post.slug]">
+        Ver mas...
+        </a>
+  </article>
+}
+</div>

@@ -1,0 +1,17 @@
+<div class="wd-1200px">
+    @if (servicesPage) {
+    <h1 [innerHTML]="servicesPage.title.rendered"></h1>
+    <div [innerHTML]="servicesPage.content.rendered"></div>
+    
+    }
+
+    <ul class="sub-list">
+        @for (page of parentPages; track page.id) {
+        <li>
+            <a [routerLink]="['/services', page.slug]">
+            {{ page.title.rendered  }}
+            </a>
+        </li>
+        }
+    </ul>
+</div>

@@ -1,8 +1,9 @@
 .header{
-        max-width: 1200px;
-        margin: 0 auto;
+        width: 100%;
         padding: 15px 0;
     nav{
+        max-width: 1200px;
+        margin: 0 auto;
         ul{
             list-style: none;
             padding: 0;
@@ -13,16 +14,77 @@
                 margin: auto 0;
                 a{
                     text-decoration: none;
+                    font-family: NexaBook;
+                    font-size: 15px;
+                    color: #000000;
                 }
+            }
+            li:last-child{
+                a{
+                    background-color: #4BBC91;
+                    padding: 15px;
+                    border-radius: 15px;
+                    color: #FFF;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+
+    .logo{
+        svg{
+        width:140px;
+        height: auto;
+        path: {
+            fill: white ;
             }
         }
     }
 }
 
-.logo{
-    svg{
-        width:140px;
-        height: auto;
+
+
+.vectors-lastname-letters,
+.vector-cleaning-letters,
+.vector-services-letters,
+.vector-figure{
+    fill: white;
+}
+
+
+.list-services{
+    visibility: hidden;
+    left: 0;
+    right: 0;
+    top: 17px;
+    position: absolute;
+    width: 264px;
+}
+
+.li-page-services{
+ position: relative;
+}
+
+.li-page-services:hover{
+    .list-services{
+       visibility: visible;
     }
 }
 
+#masthead.scroll{
+    position: fixed;    
+    border: none;
+
+    background-color: #FFFFFF;
+     box-shadow: 0 2px 29px rgba(34, 34, 34, .14);
+
+    .logo{
+        svg{
+            path{
+                  fill: revert-layer;
+                     
+            }
+        }
+    }
+}

@@ -37,5 +37,39 @@
 
 
 body{
-    margin: 0;
+  margin: 0;
+  // background-image: radial-gradient(circle, #4f8ac8, #4980bb, #4277ae, #3c6da1, #366494);
+  background-color: #4f8ac8;
 }
+
+.wd-1200px{
+  max-width: 1200px;
+   margin: 0 auto;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.main{
+  min-height: 67vh;
+}
+
+.circle{
+  height: 99vh;
+  width: 71vw;
+  background-color: #4BBC91;
+  border-radius: 50%;
+  position: absolute;
+  top: -45vh;
+  left: -32vw;
+  z-index: -1;
+}
+

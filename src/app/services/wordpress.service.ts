@@ -26,13 +26,30 @@ export class WordpressService {
 
   // Obtener páginas
   getPages(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/pages`);
+    return this.http.get<any[]>(`${this.apiUrl}/pages?per_page=100`);
   }
 
-
-  getPageBySlug(slug: string): Observable<any[]> {
+  getPageBySlug(slug: string): Observable<any[]>  {
     return this.http.get<any[]>(
-      `${this.apiUrl}/posts?slug=${slug}`
+    `${this.apiUrl}/pages?slug=${slug}`
+    );
+  }
+
+  getPageBySlugHome() {
+    return this.http.get<any[]>(
+    `${this.apiUrl}/pages?slug=home`
+    );
+  }
+
+  getPageBySlugServices() {
+    return this.http.get<any[]>(
+    `${this.apiUrl}/pages?slug=services`
+    );
+  }
+
+  getPageBySlugNews() {
+    return this.http.get<any[]>(
+    `${this.apiUrl}/pages?slug=news`
     );
   }
 }
