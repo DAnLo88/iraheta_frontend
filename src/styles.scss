@@ -38,8 +38,11 @@
 
 body{
   margin: 0;
-  // background-image: radial-gradient(circle, #4f8ac8, #4980bb, #4277ae, #3c6da1, #366494);
-  background-color: #4f8ac8;
+  //background-image: radial-gradient(circle, #4f8ac8, #4980bb, #4277ae, #3c6da1, #366494);
+  //background-image: linear-gradient(to right top, #bbcce5, #acc2e2, #9eb8df, #8faedc, #80a4d9);
+  //background-image: linear-gradient(to right top, #bbcce5, #a3b9db, #8ca7d0, #7595c6, #5d83bb);
+  //background-color: #4f8ac8;
+  //background-image: linear-gradient(to right top, #bbcce5, #99b3dc, #789ad2, #5781c8, #3069bd);
 }
 
 .wd-1200px{
@@ -63,13 +66,95 @@ body {
 }
 
 .circle{
-  height: 99vh;
-  width: 71vw;
-  background-color: #4BBC91;
-  border-radius: 50%;
-  position: absolute;
-  top: -45vh;
-  left: -32vw;
-  z-index: -1;
+
+	position: absolute;
+	width: 20vw;
+	left: 70.5%;
+    bottom: 3%;
+	border-radius: 50%;
+	height: 20vw;
+	background: #3DDBD7;
+	opacity: 84%;
+	mix-blend-mode: lighten;
+	animation-name: moveCircle;
+	animation-duration: 8s;
+	animation-direction: alternate; 
+	animation-iteration-count: infinite;
+
+
+
+  
 }
 
+ 
+	@keyframes moveCircle {
+	0% {
+		transform: translatex(0) translatey(0);
+	}
+	14.29% {
+		transform: translatex(-28%) translatey(-43%);
+	}
+	28.58% {
+		transform: translatex(-81%) translatey(0%);
+	}
+	42.87% {
+		transform: translatex(-178%) translatey(-42%);
+	}
+	57.16% {
+		transform: translatex(-302%) translatey(-19%);
+	}
+	71.45%{
+		transform: translatex(-178%) translatey(0%);
+	}
+	85.74% {
+		transform: translatex(-60%) translatey(-43%);
+	}
+	100% {
+		transform: translatex(0) translatey(0);
+	}
+	/* 50% { transform: translatex(50%) translatey(-40%);}  */
+}
+
+
+.home-section{
+  background-image: linear-gradient(to right top, #bbcce5, #99b3dc, #789ad2, #5781c8, #3069bd);
+  min-height: 100vh;
+    padding-top: 120px;
+}
+
+.container-columns{
+  display: flex;
+  align-items: center;
+}
+
+.coulmn-home-section{
+  width: 50%;
+}
+
+.image-home-section{
+  img{
+    width: auto;
+    height: 70vh;
+  }
+}
+
+.title-home-section{
+  font-family: NexaHeavy;
+  text-transform: uppercase;
+  font-size: 50px;
+}
+
+.paragraph-home-section{
+  font-family: NexaLight;
+  font-size: 20px;
+}
+
+
+.title-home-section,
+.paragraph-home-section{
+  color: #fff;
+}
+
+.coulmn-home-section:first-child{
+  padding-right: 73px;
+}

@@ -3,10 +3,9 @@
   <ng-lottie [options]="lottieOptions"></ng-lottie>
   <h2 class="title-under-construction position-under">Is Under Construction</h2>
 </div> -->
-<div class="wd-1200px">
+
 @if (homePage) {
-  <h1 [innerHTML]="homePage.title.rendered"></h1>
-  <div [innerHTML]="homePage.content.rendered"></div>
+  <div [innerHTML]="safeContent"></div>
 } 
-</div>
+
 

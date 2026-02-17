@@ -1,6 +1,8 @@
 .header{
-        width: 100%;
-        padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    padding: 9px 0;
+    z-index: 1;
     nav{
         max-width: 1200px;
         margin: 0 auto;
@@ -34,10 +36,21 @@
 
     .logo{
         svg{
-        width:140px;
+        width:170px;
+        transition: 0.4s;
         height: auto;
         path: {
             fill: white ;
+            }
+        }
+
+        &:hover{
+            svg{
+                
+                path{
+                    fill: revert-layer;
+                    transition: 0.3s;   
+                }
             }
         }
     }
@@ -73,7 +86,7 @@
 }
 
 #masthead.scroll{
-    position: fixed;    
+     
     border: none;
 
     background-color: #FFFFFF;
@@ -81,6 +94,8 @@
 
     .logo{
         svg{
+            width: 120px;
+            transition: 0.4s;
             path{
                   fill: revert-layer;
                      

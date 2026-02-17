@@ -36,8 +36,13 @@ export class WordpressService {
   }
 
   getPageBySlugHome() {
+    const params = {
+      //per_page: 5,
+      _embed: 'true'
+    };
+
     return this.http.get<any[]>(
-    `${this.apiUrl}/pages?slug=home`
+    `${this.apiUrl}/pages?slug=home`, {params}
     );
   }
 
