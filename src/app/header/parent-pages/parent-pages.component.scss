@@ -1,9 +1,21 @@
 .sub-list{
     background-color: #FFFFFF;
     list-style: none;
-    padding: 0;
+    padding: 11px 0;
     margin-top: 23px;
-    a{
-        text-decoration: none;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    li{
+        padding: 9px 11px;
+        a{
+            text-decoration: none;
+            font-family: NexaBook;
+
+            &:hover,
+            &:active{
+                font-weight: bold;
+                transition: 0.3s;
+            }
+        }
     }
 }

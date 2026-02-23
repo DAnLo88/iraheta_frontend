@@ -1,3 +1,5 @@
+@use "../../styles.scss" as *;
+
 .header{
     position: fixed;
     width: 100%;
@@ -39,17 +41,25 @@
         width:170px;
         transition: 0.4s;
         height: auto;
-        path: {
-            fill: white ;
+        path {
+            fill: $fifth-color ;
             }
         }
 
-        &:hover{
+        &:hover,
+        &:active,
+        &:focus{
             svg{
                 
                 path{
                     fill: revert-layer;
-                    transition: 0.3s;   
+                    transition: 0.5s;   
+                }
+
+                .vector-cleaning-letters,
+                .vector-services-letters{
+                    fill: black;
+                    
                 }
             }
         }

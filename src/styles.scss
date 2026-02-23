@@ -1,3 +1,12 @@
+
+$first-color: #4F8AC8;
+$second-color: #4366AF;
+$third-color: #4BBC91;
+$fourth-color: #393939;
+$fifth-color:#FFFFFF;
+
+$linear-gradient: linear-gradient(to right top, #bbcce5, #99b3dc, #789ad2, #5781c8, #3069bd);;
+// $linear-gradient: linear-gradient(to right top, #4366af, #456fb6, #4778bc, #4b81c2, #4f8ac8);
 /* You can add global styles to this file, and also import other style files */
 @font-face {
   font-family: 'Gilroy-Bold';
@@ -36,6 +45,7 @@
 }
 
 
+
 body{
   margin: 0;
   //background-image: radial-gradient(circle, #4f8ac8, #4980bb, #4277ae, #3c6da1, #366494);
@@ -66,11 +76,10 @@ body {
 }
 
 .circle{
-
 	position: absolute;
 	width: 20vw;
 	left: 70.5%;
-    bottom: 3%;
+  bottom: 3%;
 	border-radius: 50%;
 	height: 20vw;
 	background: #3DDBD7;
@@ -80,10 +89,6 @@ body {
 	animation-duration: 8s;
 	animation-direction: alternate; 
 	animation-iteration-count: infinite;
-
-
-
-  
 }
 
  
@@ -117,14 +122,19 @@ body {
 
 
 .home-section{
-  background-image: linear-gradient(to right top, #bbcce5, #99b3dc, #789ad2, #5781c8, #3069bd);
+  background-image: $linear-gradient;
   min-height: 100vh;
-    padding-top: 120px;
+  padding-top: 120px;
+}
+
+.home-section > div{
+  position: relative;
 }
 
 .container-columns{
   display: flex;
   align-items: center;
+  height: 100%;
 }
 
 .coulmn-home-section{
@@ -147,14 +157,119 @@ body {
 .paragraph-home-section{
   font-family: NexaLight;
   font-size: 20px;
+  padding-bottom: 15px;
 }
 
 
 .title-home-section,
 .paragraph-home-section{
-  color: #fff;
+  color: $fifth-color;
 }
 
 .coulmn-home-section:first-child{
   padding-right: 73px;
+}
+
+.button-services-home-section{
+  background: $second-color;
+  font-size: 30px;
+  padding: 15px;
+  border-radius: 15px;
+  font-family: "NexaBook";
+  color: #FFFFFF;
+  width: fit-content;
+  cursor: pointer;
+  z-index: 1;
+  position: relative;
+  text-decoration: none;
+
+  &:hover{
+    background-color: $third-color;
+    transition: 0.4s;
+    font-weight: bold;
+  }
+}
+
+
+.container-button-services-home-section{
+  margin-top: 20px;
+}
+
+.mySwiper{
+  height: 100vh;
+  z-index: 0;
+}
+
+.slide-1{
+  background-image: $linear-gradient;
+}
+
+.container-slide-1{
+  height: 100%;
+}
+
+.container-slide-2{
+  .container-columns{
+    justify-content: center;
+    margin-top: 111px;
+
+    .title-home-section,
+    .paragraph-home-section{
+      text-align: center;
+    }
+
+    .button-services-home-section{
+      margin: 0 auto;
+    }
+
+    .coulmn-home-section:first-child{
+      padding: 0;
+    }
+  }
+
+
+  .container-button-services-home-section{
+    display: flex;
+  }
+}
+
+.slide-image{
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transition: all 0.8s;
+    opacity: 0.6;
+    background-image: $linear-gradient;
+    background-size: 100% 100%;
+    z-index: -1;
+  }
+}
+
+.images-gif-shine{
+  position: absolute;
+  right: 37%;
+  top: 55vh;
+}
+
+#slide-image-home-third.swiper-slide-active {
+  .images-gif-shine {
+/* ... estilos estéticos ... */
+display: block; /* Empieza invisible */
+  animation: aparecerDesaparecer 5s forwards; /* Duración total de la animación */
+  }
+  
+}
+
+@keyframes aparecerDesaparecer {
+  0% { display: none; }
+  20% { display: block; } /* Aparece rápidamente */
+  80% { display: block; } /* Se mantiene visible */
+  100% { display: none; } /* Desaparece */
 }
