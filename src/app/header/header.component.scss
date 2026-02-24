@@ -20,12 +20,20 @@
                     text-decoration: none;
                     font-family: NexaBook;
                     font-size: 15px;
-                    color: #000000;
+                    color: $fifth-color;
+                    
+                    &:hover,
+                    &:active,
+                    &:focus{
+                        font-weight: bold;
+                        transition-property: font-weight;
+                        transition-duration: 0.5s;
+                    }
                 }
             }
             li:last-child{
                 a{
-                    background-color: #4BBC91;
+                    background-color: $second-color;
                     padding: 15px;
                     border-radius: 15px;
                     color: #FFF;
@@ -38,11 +46,11 @@
 
     .logo{
         svg{
-        width:170px;
+        width:200px;
         transition: 0.4s;
         height: auto;
         path {
-            fill: $fifth-color ;
+            fill: $sixth-color ;
             }
         }
 
@@ -56,10 +64,15 @@
                     transition: 0.5s;   
                 }
 
-                .vector-cleaning-letters,
+                .vector-cleaning-letters{
+                    fill: $second-color;
+                    stroke: $second-color;
+                    stroke-width: 5px;
+                }
                 .vector-services-letters{
-                    fill: black;
-                    
+                    fill: $fourth-color;
+                    stroke: $fourth-color;
+                    stroke-width: 5px;
                 }
             }
         }

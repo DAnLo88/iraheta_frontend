@@ -1,11 +1,14 @@
 
-$first-color: #4F8AC8;
-$second-color: #4366AF;
-$third-color: #4BBC91;
-$fourth-color: #393939;
-$fifth-color:#FFFFFF;
+$first-color: #4f8bc9;
+$second-color: #4366b0;
+$third-color: #355a86;
+$fourth-color: #4cbd92;
+$fifth-color:#393939;
+$sixth-color: #FFFFFF;
 
-$linear-gradient: linear-gradient(to right top, #bbcce5, #99b3dc, #789ad2, #5781c8, #3069bd);;
+$linear-gradient: linear-gradient(to right top, #bbcce5, #99b3dc, #789ad2, #5781c8, #3069bd);
+
+$second-linear-gradient:linear-gradient(to right bottom, #355a86, #3c6696, #4272a7, #497eb8, #4f8bc9);
 // $linear-gradient: linear-gradient(to right top, #4366af, #456fb6, #4778bc, #4b81c2, #4f8ac8);
 /* You can add global styles to this file, and also import other style files */
 @font-face {
@@ -163,7 +166,7 @@ body {
 
 .title-home-section,
 .paragraph-home-section{
-  color: $fifth-color;
+  color: $sixth-color;
 }
 
 .coulmn-home-section:first-child{
@@ -184,9 +187,11 @@ body {
   text-decoration: none;
 
   &:hover{
-    background-color: $third-color;
-    transition: 0.4s;
+    background-color: $fourth-color;
+    
     font-weight: bold;
+    transition-property: background-color, font-weight;
+    transition-duration: 0.4s !important;
   }
 }
 
@@ -233,6 +238,36 @@ body {
   }
 }
 
+.container-slide-3{
+  .container-columns{
+     justify-content: right;
+     align-items: center;
+     height: 100vh;
+    .coulmn-home-section{
+      padding: 0;
+    }
+  }
+}
+
+.container-slide-4{
+  .container-columns{
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    .coulmn-home-section{
+      width: 40%;
+      .title-home-section,
+      .paragraph-home-section{
+        text-align: center;
+      }
+      .container-button-services-home-section{
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}
+
 .slide-image{
   background-repeat: no-repeat;
   background-size: cover;
@@ -246,7 +281,7 @@ body {
     width: 100%;
     transition: all 0.8s;
     opacity: 0.6;
-    background-image: $linear-gradient;
+    background-image: $second-linear-gradient;
     background-size: 100% 100%;
     z-index: -1;
   }
@@ -254,7 +289,7 @@ body {
 
 .images-gif-shine{
   position: absolute;
-  right: 37%;
+  left: 22%;
   top: 55vh;
 }
 
@@ -273,3 +308,6 @@ display: block; /* Empieza invisible */
   80% { display: block; } /* Se mantiene visible */
   100% { display: none; } /* Desaparece */
 }
+
+
+

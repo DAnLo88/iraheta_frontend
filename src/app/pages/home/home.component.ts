@@ -1,4 +1,4 @@
-import { Component, signal,OnInit, AfterViewInit, ElementRef } from '@angular/core';
+import { Component, signal,OnInit, AfterViewInit, ElementRef, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { WordpressService } from '../../services/wordpress.service';
 // import { LottieComponent } from 'ngx-lottie';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
@@ -6,6 +6,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { register } from 'swiper/element/bundle';
 // register Swiper custom elements
 register();
+import { EffectCreative, Autoplay, Parallax } from 'swiper/modules';
 
 import { Router } from '@angular/router';
 
@@ -13,7 +14,8 @@ import { Router } from '@angular/router';
   standalone: true,
   // imports: [LottieComponent],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA] 
 })
 export class HomeComponent implements OnInit {
 safeContent!: SafeHtml;
@@ -26,6 +28,7 @@ safeContent!: SafeHtml;
     private router: Router
   ) {}
 
+  
   ngOnInit(): void {
     this.wpService.getPageBySlugHome().subscribe(res => {
     this.homePage = res[0];
@@ -33,7 +36,47 @@ safeContent!: SafeHtml;
     this.safeContent = this.sanitizer.bypassSecurityTrustHtml(
       this.homePage.content.rendered
     );
-   });
+
+    // Inicializar swiper después de que Angular pinte el HTML
+    setTimeout(() => {
+      this.initSwiper();
+    });
+  });
+  }
+   
+  initSwiper() {
+  const swiperEl = this.el.nativeElement.querySelector('.mySwiper');
+
+  if (!swiperEl) return;
+
+  // evita reinicialización
+  if (swiperEl.swiper) {
+    swiperEl.swiper.destroy(true, true);
+  }
+
+  Object.assign(swiperEl, {
+    modules: [EffectCreative, Autoplay, Parallax],
+    grabCursor: true,
+    effect: "creative",
+    speed: 1000,
+    parallax: true,
+    loop: true,
+    autoplay: {
+      delay: 18000,
+      disableOnInteraction: false
+    },
+    creativeEffect: {
+      prev: {
+        shadow: true,
+        translate: ["-10%", 0, -1],
+      },
+      next: {
+        translate: ["100%", 0, 0],
+      },
+    },
+  });
+
+    swiperEl.initialize();
   }
 
 
