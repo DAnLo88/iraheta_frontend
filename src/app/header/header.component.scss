@@ -36,8 +36,18 @@
                     background-color: $second-color;
                     padding: 15px;
                     border-radius: 15px;
-                    color: #FFF;
+                    color: $sixth-color;
                     font-weight: bold;
+                    height: fit-content;
+                    .icon-phone{
+                        margin-right: 3px;
+                    }
+
+                    &:hover{
+                        background-color: $fourth-color;
+                        transition-property: background-color;
+                        transition-duration: 0.5s;
+                    }
                 }
             }
         }
@@ -112,8 +122,11 @@
      
     border: none;
 
-    background-color: #FFFFFF;
-     box-shadow: 0 2px 29px rgba(34, 34, 34, .14);
+    // background-color: #FFFFFF;
+    box-shadow: 0 2px 29px rgba(34, 34, 34, .14);
+
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(35px);
 
     .logo{
         svg{

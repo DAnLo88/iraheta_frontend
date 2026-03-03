@@ -24,6 +24,11 @@
   height: 1rem;
   background: var(--footer-background);
   filter: url("#blob");
+
+  background: #3DDBD7;
+
+	mix-blend-mode: lighten;
+  opacity: 60%;
 }
 .footer .bubbles .bubble {
   position: absolute;

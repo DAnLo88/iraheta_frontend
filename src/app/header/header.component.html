@@ -43,9 +43,11 @@
         </li>
         }@else if(page.slug == 'services'){
         <li class="li-page-services">
-          <a [routerLink]="['', page.slug]">
+          <a matButton [routerLink]="['', page.slug]">
             {{ page.title.rendered  }}
           </a>
+
+          
           <app-parent-pages class="list-services" />
           
         </li>
@@ -53,14 +55,14 @@
         }
         @else{
           <li>
-          <a [routerLink]="['', page.slug]">
+          <a matButton [routerLink]="['', page.slug]">
             {{ page.title.rendered  }}
           </a>
         </li>
         }
      }
      <li>
-      <a href="tel:+8202222222">(820) 222-2222</a>
+      <a matButton href="tel:+8202222222"><fa-icon class="icon-phone" [icon]="faPhone" /> (820) 222-2222</a>
      </li>
     </ul>
   </nav>

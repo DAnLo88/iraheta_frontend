@@ -10,9 +10,13 @@ import { EffectCreative, Autoplay, Parallax } from 'swiper/modules';
 
 import { Router } from '@angular/router';
 
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatButtonModule} from '@angular/material/button';
+
 @Component({
   standalone: true,
-  // imports: [LottieComponent],
+  imports: [MatButtonModule, MatDividerModule, MatIconModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   schemas: [CUSTOM_ELEMENTS_SCHEMA] 
@@ -62,7 +66,7 @@ safeContent!: SafeHtml;
     parallax: true,
     loop: true,
     autoplay: {
-      delay: 18000,
+      delay: 180000,
       disableOnInteraction: false
     },
     creativeEffect: {

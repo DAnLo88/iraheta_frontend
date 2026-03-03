@@ -2,15 +2,20 @@ import { Component, OnInit,HostListener, ViewChild, ElementRef, Renderer2  } fro
 import { RouterModule } from '@angular/router';
 import { WordpressService } from '../services/wordpress.service';
 import { ParentPagesComponent } from "./parent-pages/parent-pages.component";
+import {MatButtonModule} from '@angular/material/button';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterModule, ParentPagesComponent],
+  imports: [RouterModule, ParentPagesComponent,MatButtonModule,FontAwesomeModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  faPhone = faPhone;
   @ViewChild('masthead') header!: ElementRef;
   pages: any[] = [];
 

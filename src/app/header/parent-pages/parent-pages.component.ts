@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { WordpressService } from '../../services/wordpress.service';
-
+import {MatButtonModule} from '@angular/material/button';
 @Component({
   selector: 'app-parent-pages',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule,MatButtonModule],
   templateUrl: './parent-pages.component.html',
   styleUrl: './parent-pages.component.scss'
 })
