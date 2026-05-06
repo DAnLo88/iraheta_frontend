@@ -1,0 +1,113 @@
+ @if (contactPage) {
+  <div class="wrap-header-page">
+    <div class="container-header-page">
+      <div class="container-title-descrition wd-1200px">
+        <h1 class="title-page" [innerHTML]="contactPage.title.rendered"></h1>
+      </div>
+      @if(featuredImage){
+        <img class="image-featured" [src]="featuredImage" alt="">
+      }
+    </div>
+  </div>
+    
+  <div id="content-page" class="contact-page">
+    <div [innerHTML]="contactPage.content.rendered"></div>
+  </div>
+  <div class="wd-1200px in-flex row-contact-page container-content">
+    <div class="column-contact-page">
+      @if (sentEmail== true){
+        <ng-lottie [options]="lottieOptions"></ng-lottie>
+      }
+      
+      @if (sentEmail == false){
+        <form class="form-contact" [formGroup]="contactDataFormGroup" (ngSubmit)="onSubmitForm()">
+        <div class="conatiner-input-contact">
+          <mat-form-field>
+            <mat-label>Your name</mat-label>
+            <input formControlName="your-name"  matInput>
+          </mat-form-field>
+          @if(yourName?.touched && yourName?.invalid){
+            @if(yourName?.errors?.['required']){
+              <mat-error class="error_validated">
+                Please enter your name 
+              </mat-error>
+            }
+          }
+        </div>  
+        <div class="conatiner-input-contact">
+          <mat-form-field>
+            <mat-label>Your email</mat-label>
+            <input formControlName="your-email" matInput>  
+          </mat-form-field>
+          @if(yourEmail?.touched && yourEmail?.invalid){
+            @if(yourEmail?.errors?.['required']){
+              <mat-error class="error_validated">
+                Please enter your email 
+              </mat-error>
+            }
+            @if(yourEmail?.errors?.['email']){
+              <mat-error class="error_validated">
+                Please enter a valid email
+              </mat-error>
+            }
+          }
+        </div>
+
+        <div class="conatiner-input-contact">
+          <mat-form-field>
+            <mat-label>Your phone number (optional)</mat-label>
+            <input  mask="(000) 000-0000" formControlName="your-number" matInput>
+          </mat-form-field>
+          @if(yourNumber?.touched && yourNumber?.errors?.['pattern']){
+            <mat-error class="error_validated">
+              Please enter valid phone number 
+            </mat-error>
+          } 
+        </div>
+        
+        <div class="conatiner-input-contact">
+          <mat-form-field>
+            <mat-label>Your Subject</mat-label>
+            <input formControlName="your-subject" matInput>
+          </mat-form-field>
+          @if(yourSubject?.touched && yourSubject?.invalid){
+              @if(yourSubject?.errors?.['required']){
+                <mat-error class="error_validated">
+                  Please enter your subject 
+                </mat-error>
+              }
+            }
+        </div>
+        
+        <div class="conatiner-input-contact">
+          <mat-form-field>
+            <mat-label>Your message</mat-label>
+            <textarea formControlName="your-message" matInput></textarea>
+            
+          </mat-form-field>
+          @if(yourMassege?.touched && yourMassege?.invalid){
+            @if(yourMassege?.errors?.['required']){
+              <mat-error class="error_validated">
+                Please enter your subject 
+              </mat-error>
+            }
+          }
+        </div>
+        
+        <button type="submit" matButton="elevated">Send</button>
+      </form>
+      }
+       
+    </div>
+    <div class="column-contact-page">     
+      <h3 class="title-h-contact">GET IN TOUCH WITH ME</h3>
+      <h2 class="title-p-contact"><span class="bold-word">Discuss</span> Your best option </h2>
+      <p class="paragraph-contact">At Iraheta Cleaning Services LLC, we provide dependable, high-quality cleaning services designed to fit your needs. Whether you need residential or commercial cleaning, our team is ready to help you find the right solution.</p>      
+      <p class="paragraph-contact">Reach out to us today to talk about your cleaning needs, ask questions, or request a free estimate. We’re here to keep your space clean, fresh, and worry-free.</p>      
+       <figure class="fig-image-contact-page img-scroll-opacity">
+        <img class="image-contact-page" src="https://admin1.irahetacleaningservicesllc.com/wp-content/uploads/2026/04/vecteezy_ai-generated-beautiful-photography-for-cleaning-service_38813420-2-scaled.webp" alt="Image for contact">
+      </figure> 
+    </div>
+  </div>
+} 
+

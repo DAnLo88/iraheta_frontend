@@ -14,13 +14,13 @@ export class WordpressService {
 
   // Obtener posts
   getPosts(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/posts`);
+    return this.http.get<any[]>(`${this.apiUrl}/posts?per_page=100`);
   }
 
   // Obtener un post por slug
   getPostBySlug(slug: string): Observable<any[]> {
     return this.http.get<any[]>(
-      `${this.apiUrl}/posts?slug=${slug}`
+      `${this.apiUrl}/posts?slug=${slug}&_embed`
     );
   }
 
@@ -31,7 +31,7 @@ export class WordpressService {
 
   getPageBySlug(slug: string): Observable<any[]>  {
     return this.http.get<any[]>(
-    `${this.apiUrl}/pages?slug=${slug}`
+    `${this.apiUrl}/pages?slug=${slug}&_embed`
     );
   }
 
@@ -48,13 +48,19 @@ export class WordpressService {
 
   getPageBySlugServices() {
     return this.http.get<any[]>(
-    `${this.apiUrl}/pages?slug=services`
+    `${this.apiUrl}/pages?slug=services&_embed`
     );
   }
 
   getPageBySlugNews() {
     return this.http.get<any[]>(
-    `${this.apiUrl}/pages?slug=news`
+    `${this.apiUrl}/pages?slug=news&_embed`
+    );
+  }
+
+  getPageBySlugContact() {
+    return this.http.get<any[]>(
+    `${this.apiUrl}/pages?slug=contact-us&_embed`
     );
   }
 }

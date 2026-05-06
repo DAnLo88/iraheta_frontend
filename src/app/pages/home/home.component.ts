@@ -13,10 +13,12 @@ import { Router } from '@angular/router';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 
 @Component({
   standalone: true,
-  imports: [MatButtonModule, MatDividerModule, MatIconModule],
+  imports: [MatButtonModule, MatDividerModule, MatIconModule,MatExpansionModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   schemas: [CUSTOM_ELEMENTS_SCHEMA] 
@@ -24,9 +26,10 @@ import {MatButtonModule} from '@angular/material/button';
 export class HomeComponent implements OnInit {
 safeContent!: SafeHtml;
   homePage: any;
- protected readonly title = signal('iraheta-site');
+  protected readonly title = signal('iraheta-site');
+  readonly panelOpenState = signal(false);
   constructor(
-      private el: ElementRef,
+    private el: ElementRef,
     private wpService: WordpressService, 
     private sanitizer: DomSanitizer,
     private router: Router
@@ -35,17 +38,17 @@ safeContent!: SafeHtml;
   
   ngOnInit(): void {
     this.wpService.getPageBySlugHome().subscribe(res => {
-    this.homePage = res[0];
+      this.homePage = res[0];
 
-    this.safeContent = this.sanitizer.bypassSecurityTrustHtml(
-      this.homePage.content.rendered
-    );
+      this.safeContent = this.sanitizer.bypassSecurityTrustHtml(
+        this.homePage.content.rendered
+      );
 
-    // Inicializar swiper después de que Angular pinte el HTML
-    setTimeout(() => {
-      this.initSwiper();
+      // Inicializar swiper después de que Angular pinte el HTML
+      setTimeout(() => {
+        this.initSwiper();
+      });
     });
-  });
   }
    
   initSwiper() {
@@ -66,9 +69,9 @@ safeContent!: SafeHtml;
     parallax: true,
     loop: true,
     autoplay: {
-      delay: 180000,
+      delay: 18000,
       disableOnInteraction: false
-    },
+    }, 
     creativeEffect: {
       prev: {
         shadow: true,
@@ -83,35 +86,49 @@ safeContent!: SafeHtml;
     swiperEl.initialize();
   }
 
-
   ngAfterViewInit() {
-    this.el.nativeElement.addEventListener('click', (event: any) => {
-      const link = event.target.closest('a.spa-link');
 
+    this.el.nativeElement.addEventListener('click', (event: any) => {
+
+      const link = event.target.closest('a');
       if (!link) return;
 
+      const url = link.getAttribute('href');
+      if (!url) return;
+
+      const internalDomains = [
+        window.location.hostname,
+        'admin1.irahetacleaningservicesllc.com'
+      ];
+
+      const isInternal =
+        internalDomains.some(domain => url.includes(domain)) ||
+        url.startsWith('/');
+
+      if (!isInternal) return;
+
       event.preventDefault();
+      event.stopPropagation();
 
-      const route = link.getAttribute('href');
-      this.router.navigateByUrl(route);
-    });
-  }
-  //     lottieOptions = {
-  //   path: 'assets/animations/website_under.json', // ruta de tu archivo JSON
-  //   loop: true,
-  //   autoplay: true
-  // };
+      let path = url;
 
+      if (url.startsWith('http')) {
+        path = new URL(url).pathname;
+      }
 
+      path = path.replace(/\/$/, '');
 
-  handleSpaClick(event: Event) {
-    event.preventDefault();
+      //detectar si el link viene del bloque Latest Posts
+      const isLatestPost = link.closest('.wp-block-latest-posts');
 
-    const target = event.currentTarget as HTMLAnchorElement;
-    const route = target.getAttribute('href');
+      if (isLatestPost) {
+        const slug = path.split('/').filter(Boolean)[0];
+        path = `/news/${slug}`;
+      }
 
-    if (route) {
-      this.router.navigateByUrl(route);
-    }
+      this.router.navigateByUrl(path);
+
+    }, true);
+
   }
 }

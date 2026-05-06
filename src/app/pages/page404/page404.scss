@@ -1,0 +1,21 @@
+@use "../../../styles.scss" as *;
+
+.grid-page-404{
+    background-image: $linear-gradient;
+    // background-color: $first-color;
+    padding-top: 67px;
+}
+
+.title-404{
+    font-family: 'YaroCut-Thin';
+    text-align: center;
+    line-height: 1;
+    font-size: 50px;
+    color: #FFFFFF;
+    position: relative;
+    top: 92px;
+}
+
+.lottie-animation-404 {
+    position: relative;
+}

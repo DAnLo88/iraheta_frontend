@@ -12,7 +12,7 @@ loop="true"  init="false">
                     <h2 class="title-home-section" data-swiper-parallax="-100%" >The best cleaning company you can trust</h2>
                     <p class="paragraph-home-section" data-swiper-parallax="-80%">At Iraheta Cleaning Services, we provide reliable residential and commercial cleaning with exceptional attention to detail. Our professional team is committed to delivering spotless results, giving you more time to focus on what matters most. Quality service, dependable staff, and satisfaction guaranteed.</p>
                     <div class="container-button-services-home-section">
-                        <a matButton class="spa-link button-services-home-section" href="/contact-us" (click)="handleSpaClick($event)" data-swiper-parallax="-60%">
+                        <a matButton class="spa-link button-contact-home-section" href="/contact-us"  data-swiper-parallax="-60%">
                             Contact Us
                         </a>
                     </div>
@@ -23,9 +23,12 @@ loop="true"  init="false">
             </div>
             <svg class="circle" width="97" height="96" viewBox="0 0 97 96" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M48.0053 -6.38965e-05C21.492 -6.38965e-05 0 21.4919 0 48.0053C0 74.5173 21.492 96.0093 48.0053 96.0093C74.5187 96.0093 96.0107 74.5173 96.0107 48.0053C96.0107 21.4919 74.5187 -6.38965e-05 48.0053 -6.38965e-05Z" fill="#4BBC91"/><path d="M21.4316 38.0974C29.2796 21.1854 43.6956 17.9894 50.2916 17.4414C52.3076 17.2748 53.8903 15.6668 54.057 13.6534C54.269 11.0921 52.1356 8.93742 49.577 9.17076C41.0116 9.94942 23.2556 14.1134 13.793 34.6908C12.7916 36.8708 13.909 39.4521 16.161 40.2814L16.2196 40.3028C18.265 41.0534 20.5143 40.0748 21.4316 38.0974Z" fill="white"/></svg>
         </div>
-       
     </swiper-slide>
     <swiper-slide style="background-image: url(https://admin1.irahetacleaningservicesllc.com/wp-content/uploads/2026/02/imagen-carousel.jpeg);" class="slide-image">
+        <video class="video-home" width="100%" height="100%" autoplay loop muted >
+            <source src="../../../assets/video/vecteezy_housewife-using-vacuum-cleaner-on-the-floor-wearing-an_33312396.mp4" type="video/mp4">
+            Your browser does not support HTML video.
+        </video>
         <div class="wd-1200px container-slide-2">
             <div class="container-columns">
                 <div class="coulmn-home-section">
@@ -34,7 +37,7 @@ loop="true"  init="false">
                       At Iraheta Cleaning Services, we provide reliable residential and commercial cleaning with exceptional attention to detail. Our professional team is committed to delivering spotless results, giving you more time to focus on what matters most. Quality service, dependable staff, and satisfaction guaranteed.
                     </p>
                     <div class="container-button-services-home-section">
-                        <a matButton href="/contact-us" class="spa-link button-services-home-section" (click)="handleSpaClick($event)" data-swiper-parallax="-60%">
+                        <a matButton href="/contact-us" class="spa-link button-contact-home-section" data-swiper-parallax="-60%">
                            Contact Us
                         </a>
                     </div>
@@ -51,7 +54,7 @@ loop="true"  init="false">
                       At Iraheta Cleaning Services, we create brilliant results that transform your home into a cleaner, brighter place. From polished floors to refreshed rooms, our team ensures a sparkling finish that truly stands out and makes a difference.
                     </p>
                     <div class="container-button-services-home-section">
-                        <a matButton href="/contact-us" class="spa-link button-services-home-section" (click)="handleSpaClick($event)" data-swiper-parallax="-60%">
+                        <a matButton href="/contact-us" class="spa-link button-contact-home-section"  data-swiper-parallax="-60%">
                            Contact Us
                         </a>
                     </div>
@@ -69,7 +72,7 @@ loop="true"  init="false">
                       At Iraheta Cleaning Services, we provide reliable residential and commercial cleaning with exceptional attention to detail. Our professional team is committed to delivering spotless results, giving you more time to focus on what matters most. Quality service, dependable staff, and satisfaction guaranteed.
                     </p>
                     <div class="container-button-services-home-section">
-                        <a matButton href="/contact-us" class="spa-link button-services-home-section" (click)="handleSpaClick($event)" data-swiper-parallax="-60%">
+                        <a matButton href="/contact-us" class="spa-link button-contact-home-section" data-swiper-parallax="-60%">
                             Contact Us
                         </a>
                     </div>
@@ -80,6 +83,55 @@ loop="true"  init="false">
 </swiper-container>
 
 @if (homePage) {
-  <div [innerHTML]="safeContent"></div>
+  <div id="content-page" [innerHTML]="safeContent"></div>
+ <!--  <div class="wd-1200px">
+    <mat-accordion>
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+            <mat-panel-title> This is the expansion title </mat-panel-title>
+            <mat-panel-description> This is a summary of the content </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>This is the primary content of the panel.</p>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+            <mat-expansion-panel-header>
+            <mat-panel-title> Self aware panel </mat-panel-title>
+            <mat-panel-description>
+                Currently I am {{panelOpenState() ? 'open' : 'closed'}}
+            </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>I'm visible because I am open</p>
+        </mat-expansion-panel>
+          <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+            <mat-expansion-panel-header>
+            <mat-panel-title> Self aware panel </mat-panel-title>
+            <mat-panel-description>
+                Currently I am {{panelOpenState() ? 'open' : 'closed'}}
+            </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>I'm visible because I am open</p>
+        </mat-expansion-panel>
+          <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+            <mat-expansion-panel-header>
+            <mat-panel-title> Self aware panel </mat-panel-title>
+            <mat-panel-description>
+                Currently I am {{panelOpenState() ? 'open' : 'closed'}}
+            </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>I'm visible because I am open</p>
+        </mat-expansion-panel>
+          <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+            <mat-expansion-panel-header>
+            <mat-panel-title> Self aware panel </mat-panel-title>
+            <mat-panel-description>
+                Currently I am {{panelOpenState() ? 'open' : 'closed'}}
+            </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>I'm visible because I am open</p>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div> -->
 } 
+
+
 

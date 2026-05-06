@@ -1,0 +1,179 @@
+@use "../../../styles.scss" as *;
+
+    .form-contact{
+        display: grid;
+        
+        max-width: 500px;
+        // margin: 0 auto;
+    
+        background-color: $first-color;  
+        padding: 70px 50px;  
+        border-radius: 50px;
+
+
+    ::ng-deep .mat-mdc-form-field-subscript-wrapper {
+        display: none;
+    }
+
+
+    ::ng-deep  .mat-mdc-form-field{
+        width: 100%;
+        background-color: $second-color;
+        border-radius: 30px;
+    
+    }
+
+    ::ng-deep .mdc-text-field{
+        background: none !important
+    }
+
+
+    ::ng-deep .mat-simple-snackbar-action{
+        color: #FF0000 !important;
+    }
+
+    .mat-form-field-empty.mat-form-field-label {
+        color: #FFF;
+    }
+
+    ::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: #FFF !important;
+    } 
+
+    ::ng-deep.mat-form-field-ripple {
+    /*change color of underline when focused*/
+    background-color: #FF0000 !important;
+    }
+
+
+    ::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+        border-radius: 30px;
+        padding: 0px 24px;
+    }
+
+    ::ng-deep  .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input {
+        color: #FFF;
+        font-size: 20px;
+        font-family: poppins;
+    }
+
+    ::ng-deep .mat-mdc-form-field-error{
+        position: absolute;
+        margin-left: 20px;
+        margin-top: 4px;
+        font-family: 'NexaLight';
+    }
+
+    ::ng-deep .mdc-button{
+        padding: 32px;
+
+        &:hover{
+            background-color: $fourth-color;
+            color: $sixth-color;
+        }
+    }
+
+    ::ng-deep .mdc-floating-label{
+        color: $sixth-color !important;
+        font-family: 'NexaBold' !important;
+    }
+
+    ::ng-deep .mat-mdc-input-element{
+        color: $sixth-color !important;
+        font-family: 'NexaLight' !important;
+    }
+}
+
+#content-page{
+    .container-content{
+        display: none !important;
+    }
+}
+
+.content-info-contact-page{
+    display: none !important;
+}
+
+
+.conatiner-input-contact{
+    width: 100%;
+    margin-bottom: 36px;
+}
+
+.column-contact-page{
+    width: 50%;
+}
+
+.row-contact-page{
+  column-gap: 30px;
+  margin-bottom: 200px;
+}
+
+.column-contact-page{
+  height: 692px;
+  .yoast-breadcrumbs{
+      display: none !important;
+  }
+
+  .container-content{
+    display: block;
+  }
+
+  .image-contact-page{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+
+  &:first-child{
+    width: 40%;
+  }
+
+  &:last-child{
+    
+    width: 60%;
+    padding: 0 30px;
+
+    .title-h-contact{
+        font-family: NexaHeavy;
+        font-size: 15px;
+    }
+
+    .title-p-contact{
+        margin-top: 15px;
+        font-family: 'YaroCut-Thin';
+        font-size: 70px;
+        line-height: 1;
+        font-weight: lighter;
+        text-transform: capitalize;
+        color: $third-color;
+        .bold-word{
+            font-weight: bold;
+            color: $fourth-color;
+        }
+    }
+
+    .paragraph-contact{
+        margin-top: 20px;
+        font-family: 'NexaLight';
+        font-size: 17px;
+        color: $third-color;
+    }
+
+    
+
+    .fig-image-contact-page{
+      margin-top: 15px;
+      height: 342px;
+      border-radius: 30px;
+      overflow: clip;
+    }
+  }
+  
+}
+
+.snack-bar-email-sent{
+  background-color: $first-color;
+}
+

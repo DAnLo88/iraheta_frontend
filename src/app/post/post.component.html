@@ -1,6 +1,16 @@
 @if (post) {
-  <div class="wd-1200px">
-    <h1 [innerHTML]="post.title.rendered"></h1>
+  <div class="wrap-header-page">
+    <div class="container-header-page">
+      <div class="container-title-descrition wd-1200px">
+        <h1 class="title-page" [innerHTML]="post.title.rendered"></h1>
+      </div>
+      @if(featuredImage){
+        <img class="image-featured" [src]="featuredImage" alt="">
+      }
+    </div>
+  </div>
+    
+  <div id="content-page" class="">
     <div [innerHTML]="post.content.rendered"></div>
   </div>
-}
+} 

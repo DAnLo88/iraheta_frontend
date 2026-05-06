@@ -37,6 +37,7 @@
     "@fortawesome/free-solid-svg-icons": "^7.0.0",
     "lottie-web": "^5.13.0",
     "ngx-lottie": "^20.0.0",
+    "ngx-mask": "^20.0.3",
     "rxjs": "~7.8.0",
     "swiper": "^12.1.1",
     "tslib": "^2.3.0",

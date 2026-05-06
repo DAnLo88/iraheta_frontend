@@ -1,3 +1,5 @@
+@use "../../styles.scss" as *;
+
 .footer a {
   text-decoration: none;
   color: #fff;
@@ -8,9 +10,9 @@
 }
 
 .footer {
-  margin-top: 150px;
+  // margin-top: 150px;
   z-index: 1;
-  --footer-background:#4BBC91;
+  --footer-background: $fourth-color;
   display: grid;
   position: relative;
   grid-area: footer;
@@ -22,10 +24,10 @@
   left: 0;
   right: 0;
   height: 1rem;
-  background: var(--footer-background);
+  background: $fourth-color;
   filter: url("#blob");
 
-  background: #3DDBD7;
+  background: $fourth-color;
 
 	mix-blend-mode: lighten;
   opacity: 60%;
@@ -38,17 +40,23 @@
   -webkit-animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s), bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
           animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s), bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
   transform: translate(-50%, 100%);
+  // path{
+  //   	mix-blend-mode: lighten;
+  // opacity: 60%;
+  // }
+  
 }
 .footer .content {
-  padding: 6rem 1rem 2rem;
-  background: var(--footer-background);
+  padding-top: 100px;
+  background: $fourth-color;
   z-index: 2;
 }
 .footer .content .container {
-  max-width: 768px;
-  margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  align-items: flex-start;
+  max-width: 1170px;
+  margin: 0 auto;
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 1.5rem;
   color: #fff;
 }
@@ -63,31 +71,43 @@
 }
 
 .footer__links  {
-  display: flex;
+  display: grid;
+  row-gap: 5px;
+  width: max-content;
   flex-direction: row;
   column-gap: 2rem;
   transition: all 150ms ease-out;
   justify-content: center;
+  margin-top: 10px;
+  a{
+    padding: 15px;
+     font-family: NexaBook;
+     &:hover,
+     &:active{
+      font-weight: bold;
+      transition: 0.3s;
+     }
+  }
 }
 
-.footer__links .footer__link {
-  transition: all 150ms ease-out;
-  display: inline-block;
-}
+// .footer__links .footer__link {
+//   transition: all 150ms ease-out;
+//   display: inline-block;
+// }
 
-.footer__link:hover:after {
-    width: 100%;
-}
+// .footer__link:hover:after {
+//     width: 100%;
+// }
 
-.footer__link:after {
-    content: '';
-    display: block;
-    margin: auto;
-    height: 2px;
-    width: 0px;
-    background-color: #fff;
-    transition: width .25s ease-out;
-}
+// .footer__link:after {
+//     content: '';
+//     display: block;
+//     margin: auto;
+//     height: 2px;
+//     width: 0px;
+//     background-color: #fff;
+//     transition: width .25s ease-out;
+// }
 .footer__socials {
   justify-self: flex-end;
 }
@@ -100,14 +120,80 @@
   opacity: 0.8;
 }
 
+.container-copyright{
+ background: #469d7c;
+}
+
 .footer__copy {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  font-family: 'NexaBook';
   text-align: center;
-  background: #4BBC91;
   font-size: .875rem;
   text-align: center;
-  color: #dcdcdc;
-  padding: 3rem 0 2rem;
+  color: $sixth-color;
+  padding: 10px 0;
+  margin-top: 25px;
+  .span-copyright{
+    text-align: left;
+  }
+  .span-policy{
+    text-align: center;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    column-gap: 10px;
+    text-transform: capitalize;
+  }
+  .span-created-by{
+    text-align: right;
+    .created_by{
+      text-align: right;
+      opacity: 0.5;
+      &:hover{
+        font-weight: bold;
+        opacity: 1;
+        transition-property: opacity,font-weight;
+        transition-duration: 0.3;
+      }
+    }
+  }
+  
 }
+
+.span-policy{
+  a{
+    opacity: 0.5;
+    &:hover{
+      font-weight: bold;
+      opacity: 1;
+      transition-property: opacity,font-weight;
+      transition-duration: 0.3;
+    }
+  }
+}
+
+.title-quick-links,
+.title-our-services,
+.title-contact-us,
+.title-social-media{
+  font-family: 'YaroCut-Thin';
+  color: $third-color;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.title-social-media{
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.icon-phone,
+.icon-mail,
+.icon-instagram{
+  font-size: 15px;
+}
+
+
 @-webkit-keyframes bubble-size {
   0%, 75% {
     width: var(--size, 4rem);

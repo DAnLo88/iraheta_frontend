@@ -1,17 +1,16 @@
-<div class="wd-1200px">
-    @if (servicesPage) {
-    <h1 [innerHTML]="servicesPage.title.rendered"></h1>
-    <div [innerHTML]="servicesPage.content.rendered"></div>
+ @if (servicesPage) {
+  <div class="wrap-header-page">
+    <div class="container-header-page">
+      <div class="container-title-descrition wd-1200px">
+        <h1 class="title-page" [innerHTML]="servicesPage.title.rendered"></h1>
+      </div>
+      @if(featuredImage){
+        <img class="image-featured" [src]="featuredImage" alt="">
+      }
+    </div>
+  </div>
     
-    }
-
-    <ul class="sub-list">
-        @for (page of parentPages; track page.id) {
-        <li>
-            <a [routerLink]="['/services', page.slug]">
-            {{ page.title.rendered  }}
-            </a>
-        </li>
-        }
-    </ul>
-</div>
+  <div id="content-page" class="">
+    <div [innerHTML]="safeContent"></div>
+  </div>
+} 
