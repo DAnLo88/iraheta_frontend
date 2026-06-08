@@ -73,7 +73,7 @@ export class PageComponent implements OnInit, AfterViewInit {
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
         setTimeout(() => this.setActiveByUrl(), 50);
-      });
+    });
   }
 
   ngAfterViewInit(): void {

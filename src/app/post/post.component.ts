@@ -1,7 +1,8 @@
-import { Component, signal,OnInit,ElementRef,AfterViewInit,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, signal,OnInit,ElementRef,AfterViewInit,CUSTOM_ELEMENTS_SCHEMA,Renderer2, } from '@angular/core';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { WordpressService } from '../services/wordpress.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-post',
@@ -10,7 +11,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
   styleUrl: './post.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA] 
 })
-export class PostComponent implements OnInit{
+export class PostComponent implements OnInit, AfterViewInit{
   safeContent!: SafeHtml;
   protected readonly title = signal('iraheta-site');
   post: any;
@@ -22,6 +23,7 @@ export class PostComponent implements OnInit{
     private wpService: WordpressService,
     private router:Router,
     private sanitizer: DomSanitizer,
+     private renderer: Renderer2,
   ) {}
 
 
@@ -44,7 +46,15 @@ export class PostComponent implements OnInit{
             this.post.content.rendered
           );
         });
+
+        setTimeout(() => this.setActiveByUrl(), 50);
       }
+    });
+
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(() => {
+        setTimeout(() => this.setActiveByUrl(), 50);
     });
   }
 
@@ -91,5 +101,35 @@ export class PostComponent implements OnInit{
 
     }, true);
 
+    setTimeout(() => this.setActiveByUrl(), 50);
+
+  }
+
+  setActiveByUrl(): void {
+    const currentUrl = this.router.url
+      .split('?')[0]
+      .replace(/\/$/, '');
+
+    const container = this.el.nativeElement.querySelector('.nav-list-post');
+    if (!container) return;
+
+    const allLinks = container.querySelectorAll('li > a');
+
+    allLinks.forEach((el: HTMLElement) => {
+      this.renderer.removeClass(el, 'active');
+
+      let link = el.getAttribute('href');
+      if (!link) return;
+
+      //normalización 
+      link = new URL(link, window.location.origin).pathname;
+
+      link = link.split('?')[0].replace(/\/$/, '');
+
+     
+      if (currentUrl === link) {
+        this.renderer.addClass(el, 'active');
+      }
+    });
   }
 }

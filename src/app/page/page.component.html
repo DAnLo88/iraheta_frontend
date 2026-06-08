@@ -10,8 +10,8 @@
     </div>
   </div>
     
-  <div id="content-page" class="">
-    <div [innerHTML]="page.content.rendered"></div>
+  <div id="content-page" class="content-page">
+    <div [innerHTML]="safeContent"></div>
   </div>
 } 
 

@@ -1,13 +1,16 @@
 @use "../../styles.scss" as *;
 
 .header{
+    display: flex;
+    justify-content: space-between;
     position: fixed;
     width: 100%;
-    padding: 9px 0;
+    padding: 9px 15px;
     z-index: 2;
+    align-items: center;
     nav{
-        max-width: 1170px;
-        margin: 0 auto;
+        
+        margin: 0;
         ul{
             list-style: none;
             padding: 0;
@@ -17,6 +20,7 @@
             li{
                 margin: auto 0;
                 a{
+                    display: none;
                     text-decoration: none;
                     font-family: NexaBook;
                     font-size: 15px;
@@ -28,6 +32,9 @@
                         font-weight: bold;
                         transition-property: font-weight;
                         transition-duration: 0.5s;
+                    }
+                    @include desktop{
+                        display: grid;
                     }
                 }
             }
@@ -51,10 +58,15 @@
                 }
             }
         }
+        @include desktop{
+            max-width: 1170px;
+            margin: 0 auto;
+        }
     }
 
 
     .logo{
+        display: block !important;
         svg{
         width:200px;
         transition: 0.4s;
@@ -87,17 +99,18 @@
             }
         }
     }
+    @include desktop{
+        display: block;
+        padding: 9px 0px;
+    }
 }
 
 
 .nav-button-page{
-    
     border-radius: 30px;
     .mdc-button__label{
         padding: 15px !important;
     }
-
-    
 }   
 
 .nav-button-page.active{
@@ -113,6 +126,7 @@
         padding: 0 !important;
     }
 }
+
 
 .vectors-lastname-letters,
 .vector-cleaning-letters,
@@ -141,8 +155,36 @@
     }
 }
 
+
+.btn-menu-main-list{
+    padding: 5px;
+    background: none;
+    border: none;
+    display: block;
+    position: relative;
+    z-index: 1;
+
+    .container-menu-line{
+        height: 23px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .menu-line{
+            width: 30px;
+            background-color: $sixth-color;
+            height: 3px;
+            border-radius: 2px;
+        }
+    }
+    
+    @include desktop{
+        display: none;
+    }
+}
+
+
 #masthead.scroll{
-     
     border: none;
 
     // background-color: #FFFFFF;
@@ -177,5 +219,63 @@
                      
             }
         }
+    }
+
+    .menu-line{    
+        background-color: $second-color;
+    }
+}
+
+
+.container-nav-responsive{
+    display: block;
+    .nav-list-responsive{
+        list-style: none;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        right: -100%;
+        box-shadow: 0 2px 29px rgba(34, 34, 34, 0.14);
+        background: rgba(255, 255, 255, 0.9);
+        -webkit-backdrop-filter: blur(35px);
+        backdrop-filter: blur(35px);
+        height: 100vh;
+    }
+
+    .nav-list-responsive.open{
+        right: 0;
+        transition-property: right;
+        transition-duration: 0.5s;
+    }
+    .nav-list-responsive.close{
+        right: -100%;
+        transition-property: right;
+        transition-duration: 0.5s;
+    }
+    @include desktop{
+        display: none;
+    }
+}
+
+.btn-menu-main-list.open{
+    .container-menu-line{
+        justify-content: revert-layer;
+    }
+    .menu-line{
+        background-color: $fourth-color !important;
+        width: 39px !important;
+    }
+    .menu-line:nth-child(1){
+        transform: rotate(45deg);
+        transition-property: transform;
+        transition-duration: 0.5s;
+    }
+    .menu-line:nth-child(2){
+      display: none;
+    }
+    .menu-line:nth-child(3){
+        transform: translateY(-3px) rotate(-45deg);
+        transition-property: transform;
+        transition-duration: 0.5s;
     }
 }

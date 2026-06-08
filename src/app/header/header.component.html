@@ -41,6 +41,7 @@
             </svg>
           </a>
         </li>
+        
         }@else if(page.slug == 'services'){
         <li class="li-page-services nav-button-page">
           <a matButton [routerLink]="['/services']" class="nav-button-page">
@@ -61,6 +62,29 @@
       <a class="button-phone" matButton href="tel:+8202222222"><fa-icon class="icon-phone" [icon]="faPhone" /> (820) 222-2222</a>
      </li>
     </ul>
+    
   </nav>
+  <div class="container-nav-responsive">
+    <button id="button-toogle" (click)="ToogleMenu()" class="btn-menu-main-list">
+      <div class="container-menu-line">
+        <div class="menu-line"></div>
+        <div class="menu-line"></div>
+        <div class="menu-line"></div>
+      </div>
+    </button>
+    <ul id="list-menu-responsive" class="nav-list-responsive">
+      @for (page of pages; track page.id) {
+        @if(page.slug !='home' && page.slug !='privacy-policy' && page.slug !='terms' && page.slug != 'cookies'){
+          <li>
+            <a (click)="closeMenu()" matButton [routerLink]="['', page.slug]" class="nav-button-page">
+            {{ page.title.rendered  }}
+          </a>
+        </li>
+        }
+        
+      }
+    </ul>
+  </div>
+  
 </header>
 }

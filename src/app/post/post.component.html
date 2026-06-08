@@ -1,8 +1,8 @@
 @if (post) {
-  <div class="wrap-header-page">
+  <div class="wrap-header-page post-page">
     <div class="container-header-page">
       <div class="container-title-descrition wd-1200px">
-        <h1 class="title-page" [innerHTML]="post.title.rendered"></h1>
+        <h1 class="title-page post-page" [innerHTML]="post.title.rendered"></h1>
       </div>
       @if(featuredImage){
         <img class="image-featured" [src]="featuredImage" alt="">
@@ -10,7 +10,7 @@
     </div>
   </div>
     
-  <div id="content-page" class="">
+  <div id="content-page" class="post-page">
     <div [innerHTML]="post.content.rendered"></div>
   </div>
 } 

@@ -25,10 +25,22 @@ loop="true"  init="false">
         </div>
     </swiper-slide>
     <swiper-slide style="background-image: url(https://admin1.irahetacleaningservicesllc.com/wp-content/uploads/2026/02/imagen-carousel.jpeg);" class="slide-image">
-        <video class="video-home" width="100%" height="100%" autoplay loop muted >
-            <source src="../../../assets/video/vecteezy_housewife-using-vacuum-cleaner-on-the-floor-wearing-an_33312396.mp4" type="video/mp4">
-            Your browser does not support HTML video.
-        </video>
+        <video
+  class="video-home"
+  width="100%"
+  height="100%"
+  autoplay
+  muted
+  loop
+  playsinline
+  preload="auto">
+
+  <source
+    src="../../../assets/video/vecteezy_housewife-using-vacuum-cleaner-on-the-floor-wearing-an_33312396.mp4"
+    type="video/mp4">
+
+  Your browser does not support HTML video.
+</video>
         <div class="wd-1200px container-slide-2">
             <div class="container-columns">
                 <div class="coulmn-home-section">
@@ -84,53 +96,6 @@ loop="true"  init="false">
 
 @if (homePage) {
   <div id="content-page" [innerHTML]="safeContent"></div>
- <!--  <div class="wd-1200px">
-    <mat-accordion>
-        <mat-expansion-panel hideToggle>
-            <mat-expansion-panel-header>
-            <mat-panel-title> This is the expansion title </mat-panel-title>
-            <mat-panel-description> This is a summary of the content </mat-panel-description>
-            </mat-expansion-panel-header>
-            <p>This is the primary content of the panel.</p>
-        </mat-expansion-panel>
-        <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
-            <mat-expansion-panel-header>
-            <mat-panel-title> Self aware panel </mat-panel-title>
-            <mat-panel-description>
-                Currently I am {{panelOpenState() ? 'open' : 'closed'}}
-            </mat-panel-description>
-            </mat-expansion-panel-header>
-            <p>I'm visible because I am open</p>
-        </mat-expansion-panel>
-          <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
-            <mat-expansion-panel-header>
-            <mat-panel-title> Self aware panel </mat-panel-title>
-            <mat-panel-description>
-                Currently I am {{panelOpenState() ? 'open' : 'closed'}}
-            </mat-panel-description>
-            </mat-expansion-panel-header>
-            <p>I'm visible because I am open</p>
-        </mat-expansion-panel>
-          <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
-            <mat-expansion-panel-header>
-            <mat-panel-title> Self aware panel </mat-panel-title>
-            <mat-panel-description>
-                Currently I am {{panelOpenState() ? 'open' : 'closed'}}
-            </mat-panel-description>
-            </mat-expansion-panel-header>
-            <p>I'm visible because I am open</p>
-        </mat-expansion-panel>
-          <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
-            <mat-expansion-panel-header>
-            <mat-panel-title> Self aware panel </mat-panel-title>
-            <mat-panel-description>
-                Currently I am {{panelOpenState() ? 'open' : 'closed'}}
-            </mat-panel-description>
-            </mat-expansion-panel-header>
-            <p>I'm visible because I am open</p>
-        </mat-expansion-panel>
-    </mat-accordion>
-</div> -->
 } 
 
 

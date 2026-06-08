@@ -1,14 +1,14 @@
 @use "../../../styles.scss" as *;
 
-    .form-contact{
-        display: grid;
-        
-        max-width: 500px;
-        // margin: 0 auto;
+.form-contact{
+    display: grid;
     
-        background-color: $first-color;  
-        padding: 70px 50px;  
-        border-radius: 50px;
+    max-width: 500px;
+    // margin: 0 auto;
+
+    background-color: $first-color;  
+    padding: 50px 25px;  
+    border-radius: 30px;
 
 
     ::ng-deep .mat-mdc-form-field-subscript-wrapper {
@@ -83,6 +83,11 @@
         color: $sixth-color !important;
         font-family: 'NexaLight' !important;
     }
+
+    @include desktop{
+        padding: 70px 50px;
+        border-radius: 50px;
+    }
 }
 
 #content-page{
@@ -106,8 +111,13 @@
 }
 
 .row-contact-page{
-  column-gap: 30px;
-  margin-bottom: 200px;
+  gap: 30px;
+  margin-bottom: 118px;
+  flex-direction: column-reverse;
+  @include desktop{
+    flex-direction: row;
+    margin-bottom: 200px;
+  }
 }
 
 .column-contact-page{
@@ -127,13 +137,17 @@
   }
 
   &:first-child{
-    width: 40%;
+    width: 100%;
+
+    @include desktop{
+        width: 40%;
+        padding: 0;
+    }
   }
 
   &:last-child{
+    width: 100%;
     
-    width: 60%;
-    padding: 0 30px;
 
     .title-h-contact{
         font-family: NexaHeavy;
@@ -143,7 +157,7 @@
     .title-p-contact{
         margin-top: 15px;
         font-family: 'YaroCut-Thin';
-        font-size: 70px;
+        font-size: 30px;
         line-height: 1;
         font-weight: lighter;
         text-transform: capitalize;
@@ -151,6 +165,10 @@
         .bold-word{
             font-weight: bold;
             color: $fourth-color;
+        }
+
+        @include desktop{
+            font-size: 70px;
         }
     }
 
@@ -168,6 +186,12 @@
       height: 342px;
       border-radius: 30px;
       overflow: clip;
+    }
+
+    @include desktop{
+        width: 60%;
+        padding-left: 76px;
+        padding-right: 0;
     }
   }
   

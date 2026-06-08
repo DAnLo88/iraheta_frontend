@@ -31,6 +31,10 @@
 
 	mix-blend-mode: lighten;
   opacity: 60%;
+  width: 85vw;
+  @include desktop{
+    width: 100%;
+  }
 }
 .footer .bubbles .bubble {
   position: absolute;
@@ -59,6 +63,11 @@
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 1.5rem;
   color: #fff;
+  text-align: center;
+
+  @include desktop{
+    text-align: left;
+  }
 }
 
 .content h2 {
@@ -73,20 +82,27 @@
 .footer__links  {
   display: grid;
   row-gap: 5px;
-  width: max-content;
+  width: 100%;
   flex-direction: row;
   column-gap: 2rem;
   transition: all 150ms ease-out;
   justify-content: center;
   margin-top: 10px;
+  margin: auto;
   a{
+    width: fit-content;
     padding: 15px;
-     font-family: NexaBook;
-     &:hover,
-     &:active{
+    font-family: NexaBook;
+    &:hover,
+    &:active{
       font-weight: bold;
       transition: 0.3s;
-     }
+    }
+  }
+  @include desktop{
+    width: max-content;
+    margin: 0;
+    margin-top: 10px;
   }
 }
 
@@ -110,6 +126,11 @@
 // }
 .footer__socials {
   justify-self: flex-end;
+  width: 100%;
+
+  @include desktop{
+
+  }
 }
 
 .footer__social {
@@ -126,16 +147,20 @@
 
 .footer__copy {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   font-family: 'NexaBook';
   text-align: center;
   font-size: .875rem;
   text-align: center;
   color: $sixth-color;
-  padding: 10px 0;
+  padding: 30px 15px;
   margin-top: 25px;
+  row-gap: 10px;
   .span-copyright{
-    text-align: left;
+    text-align: center;
+
+    @include desktop{
+      text-align: left;
+    }
   }
   .span-policy{
     text-align: center;
@@ -146,7 +171,7 @@
     text-transform: capitalize;
   }
   .span-created-by{
-    text-align: right;
+    text-align: center;
     .created_by{
       text-align: right;
       opacity: 0.5;
@@ -157,8 +182,17 @@
         transition-duration: 0.3;
       }
     }
+
+    @include desktop{
+      text-align: right;
+    }
   }
   
+  @include desktop{
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 0;
+    padding: 10px 0;
+  }
 }
 
 .span-policy{
@@ -234,7 +268,8 @@
 
 @media screen and (max-width: 767px){
   .footer .content {
-    padding: 0 1.5rem;
+    
+    padding-top: 47px;
   }
   .footer .content .container {
     grid-template-columns: repeat(2, 1fr);
@@ -250,7 +285,7 @@
 
   .footer__links  {
     flex-direction: column;
-    row-gap: 1.5rem;
+    row-gap: 5px;
   }
   
   .footer__socials {
@@ -262,5 +297,6 @@
   .footer .content .container {
     grid-template-columns: repeat(1, 1fr);
     row-gap: 3.5rem;
+    padding: 0 15px;
   }
 }

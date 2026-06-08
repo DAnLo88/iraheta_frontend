@@ -8,7 +8,7 @@ import {
   AfterViewInit
 } from '@angular/core';
 import { RouterModule, Router, NavigationEnd } from '@angular/router';
-import { filter } from 'rxjs/operators';
+import { bufferToggle, filter } from 'rxjs/operators';
 import { WordpressService } from '../services/wordpress.service';
 import { ParentPagesComponent } from './parent-pages/parent-pages.component';
 import { MatButtonModule } from '@angular/material/button';
@@ -29,6 +29,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   @ViewChild('masthead') header!: ElementRef;
 
   pages: any[] = [];
+  openToogleMenu = false;
 
   constructor(
     private wpService: WordpressService,
@@ -64,7 +65,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     setTimeout(() => this.setActiveByUrl());
   }
 
-  // 🔥 Detecta URL actual y aplica clase active
+  // Detecta URL actual y aplica clase active
   setActiveByUrl(): void {
     const currentUrl = this.router.url.split('?')[0].replace(/\/$/, '');
 
@@ -101,5 +102,34 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     } else {
       this.renderer.addClass(this.header.nativeElement, 'scroll');
     }
+  }
+
+  ToogleMenu(): void{
+    this.openToogleMenu = !this.openToogleMenu;
+    const buttonToogle = this.el.nativeElement.querySelector('#button-toogle');
+    const listNav = this.el.nativeElement.querySelector('#list-menu-responsive');
+
+    if (this.openToogleMenu == true){
+      buttonToogle.classList.add('open');
+      buttonToogle.classList.remove('close');
+      listNav.classList.remove('close');
+      listNav.classList.add('open');
+    }else{
+      buttonToogle.classList.remove('open');
+      buttonToogle.classList.add('close');
+      listNav.classList.add('close');
+      listNav.classList.remove('open');
+    }
+  }
+
+  closeMenu(){
+    const buttonToogle = this.el.nativeElement.querySelector('#button-toogle');
+    const listNav = this.el.nativeElement.querySelector('#list-menu-responsive');
+    this.openToogleMenu = false;  
+
+    buttonToogle.classList.remove('open');
+    buttonToogle.classList.add('close');
+    listNav.classList.add('close');
+    listNav.classList.remove('open');
   }
 }
